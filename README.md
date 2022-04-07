@@ -11,6 +11,8 @@ ATENÇÃO - Use por tua conta e riscos.
 
 npm install cli-color
 
+npm install xmlhttprequest
+
 3º - rode o app com 'node app.js'.
 
 #USAGE
