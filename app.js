@@ -5,6 +5,7 @@ const yellow = clc.yellow;
 const blue = clc.blue;
 const green = clc.green;
 const red = clc.red;
+const pink = clc.pink;
 
 const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 const req = new XMLHttpRequest();
@@ -78,7 +79,7 @@ function constructUI(dados) {
   const welcome = "Bem-vind@ usuári@...\n\nO programa a seguir faz uma requisição na API da Bit Preço e retorna a soma dos asks e bids dos 40 primeiros no livro, indicando a força de cada lado usando como referência a quantidade de BTC's a serem negociados...";
   
   console.log(yellow(stars));
-  console.log(blue(welcome + quebraDeLinha));
+  console.log(pink(welcome + quebraDeLinha));
 }
 
 function main() {
