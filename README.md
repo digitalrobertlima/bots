@@ -1,7 +1,13 @@
 # bots
 Repositório de testes de Bots
 
-install nodeJS
+COMO USAR O BOT DE TESTES
+
+ATENÇÃO - Use por tua conta e riscos.
+
+1º - Instalar o NodeJS;
+2º - Instalar as bibliotecas com o 'npm install';
+3º - rode o app com 'node app.js'.
 
 #USAGE
 
