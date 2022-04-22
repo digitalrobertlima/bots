@@ -75,7 +75,7 @@ function getPrice() {
 function constructUI(dados) {
   
   const quebraDeLinha = "\n";
-  const welcome = "Bem-vind@ usuári@...\n\nO programa a seguir faz uma requisição na API da Bit Preço e retorna a soma dos asks e bids dos 40 primeiros no livro, indicando a força de cada lado usando como referência a quantidade de BTC's a serem negociados...";
+  const welcome = "Bem-vind@ usuári@...\n\nO programa a seguir faz uma requisição na API da Bit Preço e retorna usando como referência a quantidade de BTC's negociados em 24h.";
   
   console.log(green(stars));
   console.log(yellow(welcome + quebraDeLinha));

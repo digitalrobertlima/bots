@@ -1,4 +1,5 @@
 const { Telegraf } = require('telegraf');
+<<<<<<< HEAD
 const tokenBOT = "5101473507:AAH7LpbUn4fKSPQ5B49rjc0MQGCM9Q2pvtU";
 const chatID = "1932673610";
 const bot = new Telegraf(tokenBOT);
@@ -47,3 +48,17 @@ function main() {
 main();
 
 //setInterval(main, 3500);
+=======
+const bot = new Telegraf("TOKEN_HERE");
+const chatID = "1932673610";
+                                              function enviarMensagem() {
+        console.log('Enviando... Por favor aguarde');
+        let mensagem = "Hello World";                 bot.telegram.sendMessage(chatID, mensagem);                                         }
+                                              function main() {
+
+        enviarMensagem();
+}
+
+main();
+setInterval(main, 15000);
+>>>>>>> refs/remotes/origin/main

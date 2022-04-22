@@ -5,7 +5,7 @@ COMO USAR O BOT DE TESTES
 
 ATENÇÃO - Use por tua conta e riscos.
 
-1º - Instalar npm install o NodeJS;
+1º - Instalar NodeJS e npm;
 
 2º - Instalar as bibliotecas com o 'npm install';
 
