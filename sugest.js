@@ -6,39 +6,11 @@ const red = clc.red;
 const white = clc.white;
 const black = clc.black;
 
-const urlTicker = "https://api.bitpreco.com/btc-brl/ticker";
-const urlOrderbook = "https://api.bitpreco.com/btc-brl/orderbook";
-const urlTrades = "https://api.bitpreco.com/btc-brl/trades";
+const urlTicker = "https://api.bitpreco.com/paxg-brl/ticker";
+const urlOrderbook = "https://api.bitpreco.com/paxg-brl/orderbook";
 
-function imprimePrice(ticker, trades) {
-	let last = parseFloat(ticker.last).toFixed(2);                                              let anterior = parseFloat(trades[1].price).toFixed(2);
-	console.log("Último: " + last);
-	console.log("Anterior: " + anterior + "\n");
-	if (last < anterior) {
-		let price = red.bold(last);
-		let diferenca = red(last - anterior);
-		price = price + " " + diferenca;
-
-return price;
-
-	} else if (last > anterior) {
-		let price = green.bold(last);
-		let diferenca = green(last - anterior);
-
-		console.log(price + green(" +"
-) + diferenca);                                               return price;
-
-	} else if (last == anterior) {
-		let price = yellow(last);             } else {
-                console.log('err');
-        }                                     }
-
-function printPrice() {
-	let ticker = getJSON(urlTicker);
-	let trades = getJSON(urlTrades);
-
-	let ultimoPreco = imprimePrice(ticker, trades);
-	console.log("\nÚltimo preço negociado: " + ultimoPreco);
+function printPrice(lastPrice) {
+	console.log("\nÚltimo preço negociado: " + yellow.bold(lastPrice));
 }
 
 function printVolume (volume) {
@@ -105,7 +77,7 @@ function imprimeForca(objeto) {
 
 	let somaCompras = 0;                          let somaVendas = 0;
 
-        //console.log(objeto);
+        console.log('Recebendo: ' + objeto);
 	
 	for(let i = 0; i < 40; i++) {
 		somaCompras = somaCompras + objeto.bids[i].amount;
@@ -126,7 +98,7 @@ function imprimeBook(objeto) {
 function printDolar(preco) {
 	let calculoDolar = parseFloat(preco)/4.7;
 	let dolar = calculoDolar.toFixed(2);
-	console.log('Preço em Dólar: ' + blue.bold('U$' + dolar.toLocaleString('en-US', {style: 'currency', currency: 'USD'})));
+	console.log('Preço em Dólar: ' + blue.bold(dolar.toLocaleString('en-US', {style: 'currency', currency: 'USD'})));
 }
 
 function imprimeTicker(objeto) {
@@ -144,7 +116,7 @@ function imprimeTicker(objeto) {
 	
 	console.log(yellow.bold("\nEste é um resumo do mercado atual: " + green(market) + "\n" + timestamp));
 
-	printPrice();
+	printPrice(lastPrice);
 	printDolar(price);
 	printVolume(volume);
 	imprimeOpostos(maior, menor);
@@ -154,12 +126,11 @@ function imprimeTicker(objeto) {
 function definirObjeto(objeto) {
 
 	let tamanhoObjeto = Object.keys(objeto).length;
+	console.log(tamanhoObjeto);
 
 	if (tamanhoObjeto == 11) {
 		
 		console.log(blue.bold('\nAguardando ticker...'));
-
-		let trades = 
 		
 		imprimeTicker(objeto);
 
@@ -182,21 +153,18 @@ function getJSON(url) {
 	request.send();
 
 	let obj = JSON.parse(request.responseText);
+	definirObjeto(obj);
 
-	return obj
+	return
 }
 
 function getPrice(ticker, orderbook) {
 
-	let obj = getJSON(ticker);
-
-	definirObjeto(obj);
+	getJSON(ticker);
 
 	//console.log(obj);
-	
-	obj = getJSON(orderbook);
 
-	definirObjeto(obj);
+	getJSON(orderbook);
 
 	//console.log(obj);
 }
